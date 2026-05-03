@@ -1,0 +1,40 @@
+{
+  "id": "course",
+  "name": "קורסים — מייל פתיחה למורה",
+  "subject": "מייל פתיחה למורה — {{course_name}}",
+  "bodyFile": "body.txt",
+  "params": {
+    "course_manager":    { "label": "מנהלת קורס",                       "required": true,  "monday": "course_manager" },
+    "course_name":       { "label": "שם הקורס (שם פריט)",               "required": true,  "monday": "name" },
+    "start_date":        { "label": "תאריך פתיחה",                      "required": true,  "monday": "start_date" },
+    "day":               { "label": "יום",                               "required": true,  "monday": "day" },
+    "hours":             { "label": "שעות",                              "required": true,  "monday": "hours" },
+    "address":           { "label": "כתובת",                             "required": true,  "monday": "address",         "requiredWhen": "is_frontal" },
+    "zoom_account":      { "label": "חשבון זום לקורס (pulse.text99)",   "required": true,  "monday": "zoom_account",    "requiredWhen": "is_zoom" },
+    "contact_name":      { "label": "שם איש קשר",                       "required": true,  "monday": "contact_name",    "requiredWhen": "has_contact" },
+    "contact_phone":     { "label": "טלפון איש קשר",                    "required": true,  "monday": "contact_phone",   "requiredWhen": "has_contact" },
+    "syllabus":          { "label": "סילבוס",                           "required": true,  "monday": "syllabus" },
+    "attendance_sheet":  { "label": "דף נוכחות",                        "required": true,  "monday": "attendance_sheet" },
+    "teaching_payment":  { "label": "תשלום הוראה",                      "required": true,  "monday": "teaching_payment" },
+    "travel_payment":    { "label": "תשלום נסיעות",                     "required": false, "monday": "travel_payment" },
+    "zoom_link":         { "label": "קישור לזום למשתתפים",              "required": true,  "monday": "zoom_link",       "requiredWhen": "is_zoom" },
+    "zoom_password":     { "label": "סיסמא לזום למשתתפים",              "required": true,  "monday": "zoom_password",   "requiredWhen": "is_zoom" },
+    "recordings_folder": { "label": "קישור לתיקיית הקלטות",            "required": true,  "monday": "recordings_folder","requiredWhen": "is_zoom" }
+  },
+  "flags": {
+    "lesson_format": {
+      "label": "פורמט הקורס",
+      "monday": "lesson_format",
+      "values": ["frontal", "zoom"]
+    },
+    "has_contact": {
+      "label": "האם יש איש קשר חיצוני (לא קורס מדרסה פנימי)",
+      "derived": "contact_name_not_empty"
+    }
+  },
+  "conditions": {
+    "is_frontal": "lesson_format == 'frontal'",
+    "is_zoom":    "lesson_format == 'zoom'",
+    "has_contact":"has_contact == true"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "templates": [
+    { "id": "course", "name": "קורסים — מייל פתיחה למורה" },
+    { "id": "practice-extended", "name": "קבוצות תרגול — תרגול בתוך קורס מורחב" },
+    { "id": "practice-gym", "name": "תרגול חדר כושר — ארבעה מפגשים" },
+    { "id": "private-lessons", "name": "שיעורים פרטיים" }
+  ]
+}

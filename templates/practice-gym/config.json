@@ -1,0 +1,16 @@
+{
+  "id": "practice-gym",
+  "name": "תרגול חדר כושר — ארבעה מפגשים",
+  "subject": "חדר הכושר לערבית — {{course_name}}",
+  "bodyFile": "body.txt",
+  "params": {
+    "course_name": { "label": "שם הקבוצה (שם פריט)", "required": true,  "monday": "name" },
+    "start_date":  { "label": "תאריך פתיחה",          "required": true,  "monday": "start_date" },
+    "day":         { "label": "יום",                  "required": true,  "monday": "day" },
+    "hours":       { "label": "שעות",                 "required": true,  "monday": "hours" },
+    "syllabus":    { "label": "סילבוס",               "required": true,  "monday": "syllabus" },
+    "attendance":  { "label": "נוכחות",               "required": true,  "monday": "attendance_sheet" }
+  },
+  "flags": {},
+  "conditions": {}
+}

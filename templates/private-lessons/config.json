@@ -1,0 +1,14 @@
+{
+  "id": "private-lessons",
+  "name": "שיעורים פרטיים",
+  "subject": "חבילת שיעורים פרטיים בערבית — {{course_name}}",
+  "bodyFile": "body.txt",
+  "params": {
+    "course_name":     { "label": "שם הפריט (חבילת שיעורים)", "required": true,  "monday": "name" },
+    "student_phone":   { "label": "טלפון תלמיד",               "required": true,  "monday": "student_phone" },
+    "student_email":   { "label": "מייל תלמיד",                "required": true,  "monday": "student_email" },
+    "student_notebook":{ "label": "מחברת תלמיד",               "required": true,  "monday": "student_notebook" }
+  },
+  "flags": {},
+  "conditions": {}
+}
