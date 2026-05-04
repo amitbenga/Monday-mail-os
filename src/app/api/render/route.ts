@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { loadTemplate } from "@/lib/templates";
-import { render, stripSentinels } from "@/lib/engine";
+import { render, stripSentinels, bodyContainsUnresolved } from "@/lib/engine";
 import { validate } from "@/lib/validator";
 
 export async function POST(req: Request) {
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
       missing,
       usedParams: r.usedParams,
       resolvedFlags: r.resolvedFlags,
-      hasUnresolved: missing.length > 0 || r.body.includes(" MISSING:") || r.subject.includes(" MISSING:"),
+      hasUnresolved: missing.length > 0 || bodyContainsUnresolved(r.body) || bodyContainsUnresolved(r.subject),
     });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || "Render failed" }, { status: 500 });

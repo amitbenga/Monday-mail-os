@@ -107,7 +107,7 @@ function renderNodes(
       const v = ctx.values[n.name];
       if (v === undefined || v === null || v === "") {
         missing.add(n.name);
-        out += ` MISSING:${n.name} `;
+        out += `�MISSING:${n.name}�`;
       } else {
         out += String(v);
       }
@@ -170,9 +170,9 @@ export function render(
 }
 
 export function bodyContainsUnresolved(text: string): boolean {
-  return / MISSING:/.test(text);
+  return /�MISSING:[\w.]+/.test(text);
 }
 
 export function stripSentinels(text: string): string {
-  return text.replace(/ MISSING:[\w.]+ /g, "");
+  return text.replace(/�MISSING:[\w.]+�/g, "");
 }
